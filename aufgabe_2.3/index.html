@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+
+    <h1>Überschrift</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nostrum sequi autem architecto, exercitationem
+        tempore, dolorem maxime explicabo voluptatem quisquam suscipit. Distinctio optio veritatis ipsum sunt quaerat
+        accusamus incidunt quas.</p>
+
+    <ol>
+        <li>
+            eins
+        </li>
+        <li>
+            zwei
+        </li>
+    </ol>
+
+    <script>
+        const body = document.querySelector("body")
+
+        function backgroundColorChange() {
+            body.style.backgroundColor = "#123456"
+        }
+
+        backgroundColorChange()
+
+
+
+        const pcss = document.querySelector('p')
+
+        function pClassCreate(){
+            pcss.classList.add('bread')
+            
+        }
+            pClassCreate()    
+
+        document.getElementsByClassName("bread")[0].style.fontSize = "2em";
+        
+
+
+
+    </script>
+</body>
+
+</html>
