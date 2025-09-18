@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+ol{
+    display: flex;
+    flex-wrap: wrap ;
+    gap: 30px;
+}
+
+li{
+    background-color: rgba(11, 139, 11, 0.717);
+    display: block;
+    width: 200px;
+    height: 60px;
+    padding: 5px;
+    border-color: green;
+    border-radius: 10px;
+}

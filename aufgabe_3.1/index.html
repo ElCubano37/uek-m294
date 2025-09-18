@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>0</h1>
+    <button onclick="buttonClick()">Penisini Effect</button>
+
+    <h1>0</h1>
+    <button onclick="buttonClick()">Penisini mass Effect</button>
+
+
+    <script>
+        let counter = 0;
+        const count = document.getElementsByTagName("h1")
+
+        function buttonClick(){
+            counter = counter + 1; // ist gleich wie counter ++
+            count.textContent = counter;
+        }
+    </script>
+</body>
+</html>
