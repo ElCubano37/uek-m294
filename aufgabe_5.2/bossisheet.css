@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: block;
+    background-color: #389b0a;
+    width: min-content 150px;
+    height: min-content 100px;
+    margin: 10%;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+}

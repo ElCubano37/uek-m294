@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+
+  <!-- Dein vorhandenes Stylesheet -->
+  <link rel="stylesheet" href="bossisheet.css"/>
+
+  <!-- Minimaler Zusatzstil nur für die Ratings -->
+  <style>
+    :root{
+      --fg:#0f172a; --muted:#475569; --accent:#2563eb; --accent-2:#facc15;
+      --card:#f8fafc; --ring:#93c5fd;
+    }
+    .ratings{margin-top:12px;padding:12px;background:var(--card);border-radius:12px}
+    .ratings h4{margin:0 0 8px 0;font-size:16px}
+    .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0}
+    .rating{display:inline-flex;gap:8px;align-items:center}
+
+    .rate-btn{appearance:none;border:none;background:none;padding:6px;line-height:1;cursor:pointer;border-radius:10px;transition:transform .06s}
+    .rate-btn:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+    .rate-btn:active{transform:scale(.96)}
+
+    /* Sterne */
+    .stars .symbol{font-size:28px;color:#e5e7eb}
+    .stars .symbol.active{color:var(--accent-2)}
+    /* Punkte/Dots */
+    .dots .symbol{width:16px;height:16px;border-radius:999px;background:#c7d2fe;display:inline-block}
+    .dots .symbol.active{background:var(--accent)}
+    /* Likert & Emoji */
+    .likert .symbol,.emoji .symbol{font-size:26px;filter:grayscale(1);opacity:.45;transform:translateY(1px)}
+    .likert .symbol.active,.emoji .symbol.active{filter:none;opacity:1}
+
+    .score{color:var(--muted);min-width:120px;display:inline-block}
+    .range{width:240px}
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Rating Site</h2>
+  </header>
+
+  <main>
+    <!-- CARD 1 -->
+    <div class="container">
+      <img src="https://picsum.photos/id/40/200/200" alt="">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsam incidunt atque adipisci porro numquam. Modi porro iste, qui amet aspernatur quibusdam natus inventore rerum nostrum accusamus in, minus deleniti.</p>
+
+      <!-- Bewertungsoptionen -->
+      <div class="ratings" data-initial-stars="5" data-initial-dots="5" data-initial-slider="1" data-initial-likert="4" data-initial-emoji="0">
+        <h4>Bewerten</h4>
+
+        <div class="row">
+          <strong>Sterne:</strong>
+          <div class="rating stars" role="radiogroup" aria-label="Sterne-Bewertung"></div>
+          <span class="score" data-type="stars">Bewertung: 5 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Punkte:</strong>
+          <div class="rating dots" role="radiogroup" aria-label="Punkte-Bewertung"></div>
+          <span class="score" data-type="dots">Bewertung: 5 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Slider:</strong>
+          <input class="range" type="range" min="1" max="5" step="1" aria-label="Slider-Bewertung"/>
+          <span class="score" data-type="slider">Bewertung: 1 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Like/Dislike:</strong>
+          <div class="rating likert" role="radiogroup" aria-label="Like/Dislike-Bewertung" data-symbols="👎,👎,😐,👍,👍"></div>
+          <span class="score" data-type="likert">Bewertung: 4 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Emoji:</strong>
+          <div class="rating emoji" role="radiogroup" aria-label="Emoji-Bewertung" data-symbols="😡,😟,😳,🙂,🥰"></div>
+          <span class="score" data-type="emoji">Bewertung: 0 von 5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="container">
+      <img src="https://picsum.photos/id/30/200/200" alt="">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsam incidunt atque adipisci porro numquam. Modi porro iste, qui amet aspernatur quibusdam natus inventore rerum nostrum accusamus in, minus deleniti.</p>
+
+      <div class="ratings" data-initial-stars="3" data-initial-dots="2" data-initial-slider="4" data-initial-likert="2" data-initial-emoji="3">
+        <h4>Bewerten</h4>
+
+        <div class="row">
+          <strong>Sterne:</strong>
+          <div class="rating stars" role="radiogroup" aria-label="Sterne-Bewertung"></div>
+          <span class="score" data-type="stars">Bewertung: 3 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Punkte:</strong>
+          <div class="rating dots" role="radiogroup" aria-label="Punkte-Bewertung"></div>
+          <span class="score" data-type="dots">Bewertung: 2 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Slider:</strong>
+          <input class="range" type="range" min="1" max="5" step="1" aria-label="Slider-Bewertung"/>
+          <span class="score" data-type="slider">Bewertung: 4 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Like/Dislike:</strong>
+          <div class="rating likert" role="radiogroup" aria-label="Like/Dislike-Bewertung" data-symbols="👎,👎,😐,👍,👍"></div>
+          <span class="score" data-type="likert">Bewertung: 2 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Emoji:</strong>
+          <div class="rating emoji" role="radiogroup" aria-label="Emoji-Bewertung" data-symbols="😡,😟,😳,🙂,🥰"></div>
+          <span class="score" data-type="emoji">Bewertung: 3 von 5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="container">
+      <img src="https://picsum.photos/id/70/200/200" alt="">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsam incidunt atque adipisci porro numquam. Modi porro iste, qui amet aspernatur quibusdam natus inventore rerum nostrum accusamus in, minus deleniti.</p>
+
+      <div class="ratings" data-initial-stars="1" data-initial-dots="4" data-initial-slider="5" data-initial-likert="5" data-initial-emoji="1">
+        <h4>Bewerten</h4>
+
+        <div class="row">
+          <strong>Sterne:</strong>
+          <div class="rating stars" role="radiogroup" aria-label="Sterne-Bewertung"></div>
+          <span class="score" data-type="stars">Bewertung: 1 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Punkte:</strong>
+          <div class="rating dots" role="radiogroup" aria-label="Punkte-Bewertung"></div>
+          <span class="score" data-type="dots">Bewertung: 4 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Slider:</strong>
+          <input class="range" type="range" min="1" max="5" step="1" aria-label="Slider-Bewertung"/>
+          <span class="score" data-type="slider">Bewertung: 5 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Like/Dislike:</strong>
+          <div class="rating likert" role="radiogroup" aria-label="Like/Dislike-Bewertung" data-symbols="👎,👎,😐,👍,👍"></div>
+          <span class="score" data-type="likert">Bewertung: 5 von 5</span>
+        </div>
+
+        <div class="row">
+          <strong>Emoji:</strong>
+          <div class="rating emoji" role="radiogroup" aria-label="Emoji-Bewertung" data-symbols="😡,😟,😳,🙂,🥰"></div>
+          <span class="score" data-type="emoji">Bewertung: 1 von 5</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interaktives, container-scope JavaScript -->
+  <script>
+    function buildGroup(container){
+      const init = {
+        stars:  Number(container.dataset.initialStars  || 0),
+        dots:   Number(container.dataset.initialDots   || 0),
+        slider: Number(container.dataset.initialSlider || 1),
+        likert: Number(container.dataset.initialLikert || 0),
+        emoji:  Number(container.dataset.initialEmoji  || 0)
+      };
+
+      // Helper: render 1..5 buttons
+      function makeButtons(wrapper, kind, customSymbols){
+        wrapper.innerHTML = "";
+        for(let i=1;i<=5;i++){
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "rate-btn";
+          btn.setAttribute("role","radio");
+          btn.setAttribute("aria-label", `${i} von 5`);
+          btn.dataset.value = i;
+
+          const span = document.createElement("span");
+          span.className = "symbol";
+          if(kind==="stars"){
+            span.textContent = "★";
+          } else if(kind==="dots"){
+            // nur Styling über CSS
+          } else {
+            span.textContent = (customSymbols?.[i-1]) || "😀";
+          }
+          btn.appendChild(span);
+          wrapper.appendChild(btn);
+        }
+      }
+
+      // Init Sterne
+      const starsWrap = container.querySelector(".rating.stars");
+      makeButtons(starsWrap,"stars");
+      setValue(starsWrap, init.stars);
+
+      // Init Dots
+      const dotsWrap = container.querySelector(".rating.dots");
+      makeButtons(dotsWrap,"dots");
+      setValue(dotsWrap, init.dots);
+
+      // Init Likert
+      const likertWrap = container.querySelector(".rating.likert");
+      const likertSymbols = (likertWrap.dataset.symbols||"").split(",").map(s=>s.trim());
+      makeButtons(likertWrap,"likert",likertSymbols);
+      setValue(likertWrap, init.likert);
+
+      // Init Emoji
+      const emojiWrap = container.querySelector(".rating.emoji");
+      const emojiSymbols = (emojiWrap.dataset.symbols||"").split(",").map(s=>s.trim());
+      makeButtons(emojiWrap,"emoji",emojiSymbols);
+      setValue(emojiWrap, init.emoji);
+
+      // Slider
+      const slider = container.querySelector("input.range");
+      slider.value = init.slider || 1;
+      updateScore(container,"slider", slider.value);
+      slider.addEventListener("input", ()=>updateScore(container,"slider", slider.value));
+
+      // Events for click + keyboard
+      container.querySelectorAll(".rating").forEach(wrap=>{
+        wrap.tabIndex = 0;
+        wrap.addEventListener("click", e=>{
+          const b = e.target.closest(".rate-btn");
+          if(!b) return;
+          setValue(wrap, Number(b.dataset.value));
+        });
+        wrap.addEventListener("keydown", e=>{
+          const cur = Number(wrap.dataset.value||0);
+          if(["ArrowRight","ArrowUp"].includes(e.key)){ setValue(wrap, cur+1); e.preventDefault(); }
+          if(["ArrowLeft","ArrowDown"].includes(e.key)){ setValue(wrap, cur-1); e.preventDefault(); }
+          if([" ","Enter","Spacebar"].includes(e.key)){ setValue(wrap, cur||1); e.preventDefault(); }
+        });
+      });
+
+      // Helpers
+      function setValue(wrap, val){
+        const v = Math.max(1, Math.min(5, Number(val)||0));
+        wrap.dataset.value = v;
+        wrap.querySelectorAll(".rate-btn .symbol").forEach((el, idx)=>{
+          if(idx < v) el.classList.add("active"); else el.classList.remove("active");
+        });
+        const type = [...wrap.classList].find(c => ["stars","dots","likert","emoji"].includes(c));
+        updateScore(container, type, v);
+      }
+      function updateScore(scope, type, v){
+        const out = scope.querySelector(`.score[data-type="${type}"]`);
+        if(out) out.textContent = `Bewertung: ${v} von 5`;
+      }
+    }
+
+    // Starte für alle .ratings-Blöcke
+    document.addEventListener("DOMContentLoaded", ()=>{
+      document.querySelectorAll(".ratings").forEach(buildGroup);
+    });
+  </script>
+</body>
+</html>
