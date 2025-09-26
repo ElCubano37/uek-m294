@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const API_PATH = "http://127.0.0.1:3002/?serverWindowId=848f224b-c04c-4d08-9880-caa30fd45312"
+
+        function getAllTasks() {
+            return fetch(`${API_PATH}/tasks`)
+            .then((res) => res.json())
+            .then((data) => ..);
+                data.array.forEach((task) => {
+                    const taskEl = document.createElement("li");
+                    taskEl.innerHTML = `${task.title}`
+                    teasksEl.appendChild(taskEl)
+                });
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            tesksEl = document.querySelector("#tasks");
+            renderTasks();
+        })
+    </script>
+</head>
+<body>
+    
+    <ul id="tasks">
+
+    </ul>
+
+
+</body>
+</html>

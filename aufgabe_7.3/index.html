@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+            input,
+            button {
+                display: block;
+                margin-block-end: 0.5rem;
+            }
+        </style>
+        <script>
+            let zipcodes;
+
+            fetch("./places.json", { headers: {'Content-Type': "application/json"}})
+                .then((res) => res.json())
+                .then((data) => zipcodes = data);
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const zipInputEl = document.querySelector("input[name=zip]");
+                const townInputEl = document.querySelector("input[name=town]");
+                zipInputEl.addEventListener("blur", () => {
+                    const entry = zipcodes.find((entry) => entry.zipcode === zipInputEl.value);
+                    townInputEl.value = entry.place;
+                })
+            });
+        </script>
+</head>
+<body>
+        <form>
+            <label>Vorname
+                <input type="text" name="forename" />
+            </label>
+            <label>Nachnamen
+                <input type="text" name="surname" />
+            </label>
+            <label>Strasse
+                <input type="text" name="street" />
+            </label>
+            <label>Postleitzahl
+                <input type="text" name="zip" />
+            </label>
+            <label>Ort
+                <input type="text" name="town" />
+            </label>
+            <button type="submit">Senden</button>
+        </form>
+    </body>
+</html>

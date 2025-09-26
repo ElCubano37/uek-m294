@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einfacher Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      font-size: 4rem;
+    }
+    button {
+      font-size: 1.2rem;
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="counter">0</h1>
+
+  <button onclick="up()">+1</button>
+  <button onclick="down()">-1</button>
+
+  <script>
+    let count = 0;
+    const counter = document.querySelector(".counter");
+
+    function up() {
+      count++;
+      counter.textContent = count;
+    }
+
+    function down() {
+      count--;
+      counter.textContent = count;
+    }
+  </script>
+
+</body>
+</html>

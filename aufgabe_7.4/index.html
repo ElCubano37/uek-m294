@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:user-invalid {
+        border: solid 2px red;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form");
+        const auswertung = document.querySelector(".Auswertung");
+        const plzInput = document.getElementById("PLZ");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          if (form.PLZ.value.length === 4) {
+            const plz = form.PLZ.value;
+ 
+            fetch(
+              `https://corsproxy.io/?https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=${plz}00`
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                const datum = new Date(data.currentWeather.time);
+                datum.toDateString();
+                auswertung.innerText = `Am Ort mit der Postleitzahl ${plz} mit dem Datum ${datum}, beträgt die aktuelle Temperatur ${data.currentWeather.temperature}°C.`;
+              })
+              .catch((error) => {
+                auswertung.innerText =
+                  "Fehler beim Abrufen der Wetterdaten. / PLZ ungültig.";
+                console.error("Error fetching weather data:", error);
+              });
+          } else if (form.PLZ.value.length < 4) {
+            return;
+          } else if (form.PLZ.value.length > 4) {
+            return;
+          }
+        });
+ 
+        plzInput.addEventListener("input", () => {
+          if (form.PLZ.value.length < 4) {
+            plzInput.setCustomValidity("Bitte eine gültige PLZ eingeben.");
+          } else if (form.PLZ.value.length > 4) {
+            plzInput.setCustomValidity("Bitte eine gültige PLZ eingeben.");
+          } else {
+            plzInput.setCustomValidity("");
+          }
+        });
+ 
+        plzInput.addEventListener("blur", () => {
+          if (form.PLZ.value.length < 4) {
+            auswertung.innerText = "Bitte eine gültige PLZ eingeben.";
+          } else if (form.PLZ.value.length > 4) {
+            auswertung.innerText = "Bitte eine gültige PLZ eingeben.";
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <label for="PLZ">
+        PLZ
+        <input
+          type="number"
+          id="PLZ"
+          name="PLZ"
+          minlength="4"
+          maxlength="4"
+          required
+        />
+      </label>
+      <button type="submit">Wetter abrufen</button>
+    </form>
+    <p class="Auswertung"></p>
+  </body>
+</html>

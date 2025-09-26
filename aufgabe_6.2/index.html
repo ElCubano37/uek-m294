@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: pink;
+
+
+            label, h2{
+                color: rgb(203, 47, 125);
+            }
+
+            forms{
+                display: flex;
+                flex-direction: column;
+                width: 40vw;
+
+                label{
+                    padding: 10px;
+                }
+            }
+            
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+
+    <h2>Add New Friend</h2>
+
+    <forms>
+        <label>Vorname
+                <input type="text" name="Vorname" class="penis"/>
+        </label>
+
+        <label>Nachname
+                <input type="text" name="Nachname" class="penis"/>
+        </label>
+
+        <label>Strasse
+                <input type="text" name="Strasse" />
+        </label>
+
+        <label>Ort
+                <input type="text" name="Ort" />
+        </label>
+
+        <label>Email
+                <input type="email" name="Email" />
+        </label>
+
+        <button onclick="deleteValues()">löschen</button>
+        <button>weiter</button>
+    </forms>
+
+    <script>
+        
+        
+
+        function deleteValues() {
+            const values = document.querySelectorAll("")
+            values.value = "";
+        }
+    </script>
+
+</body>
+</html>

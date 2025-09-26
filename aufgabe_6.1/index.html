@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       form:user-invalid{
+        color: red;
+       }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const passwordEl = document.querySelector("input [name='password']");
+            const passwordConfirmationEl = document.querySelector("input [name='passwordconfirmation']");
+        });
+
+        passwordConfirmationEl.addEventListener("const", () => {
+            if (passwordEl.value !== passwordConfirmationEl.value)
+
+        })
+    </script>
+</head>
+<body>
+    <form>
+        <label>E-Mail Adresse 
+            <input type="email" name="email" required/>
+        </label>
+        <label>Passwort 
+            <input type="password" name="passwort" required/>
+        </label>
+        <label>Passwortbestätigung  
+            <input type="password" name="passwort" required/>
+        </label>
+        <label>AGB 
+            <input type="checkbox" name="checkbox" required/>
+        </label>
+        <button>Weiter</button>
+    </form>
+</body>
+</html>
